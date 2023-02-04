@@ -34,6 +34,12 @@ module.exports = {
       screens: {
         "3xl": "1600px",
       },
+      width : {
+        "56vw" : "56vw",
+      },
+      height : {
+        "5vw" : "5vw"
+      }
      
     },
   },
