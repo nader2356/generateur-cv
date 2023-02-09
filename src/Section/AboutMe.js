@@ -2,7 +2,7 @@ import { Field } from "formik";
 import { RightOutlined } from "@ant-design/icons";
 import * as Yup from "yup";
 import { Error } from "../Component/Error";
-import { useEffect } from "react";
+
 
 export const aboutMeValidationSchema = Yup.object().shape({
   poste: Yup.string().required(" Obligatoire"),
@@ -39,7 +39,7 @@ const AboutMe = ({
             onChange={handleChange}
             name={namespace + ".poste"}
             placeholder=" ex : Ingenieur"
-            className="bg-panel rounded-md pt-2 pb-2 mt-2 pl-2 md:w-97%  border-solid border border-barckground_textarea "
+            className="bg-panel rounded-md pt-2 pb-2 mt- pl-2 md:w-97%  border-solid border border-barckground_textarea "
           />
         </div>
         <Error name={namespace + ".poste"}></Error>

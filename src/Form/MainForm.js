@@ -5,19 +5,22 @@ import AboutMe, {
   aboutMeInitialValues,
   aboutMeValidationSchema,
 } from "../Section/AboutMe";
-
+import {
+  userInitialValues,
+  userValidationSchema,
+} from "../Section/PersonalInfo";
 
 const MainForm = () => {
   const validationSchema = Yup.object({
     aboutMe: aboutMeValidationSchema,
-  
+    infoPersonnelle: userValidationSchema,
   });
 
   const [Active, setActive] = useState("aboutMe");
 
   const mainSectionInitialValues = {
     aboutMe: aboutMeInitialValues,
-    
+    infoPersonnelle: userInitialValues,
   };
 
   return (
