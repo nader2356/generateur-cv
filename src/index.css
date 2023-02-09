@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.accordionContent {
+    @apply pl-10  bg-panel pt-5 pb-9 pr-5  border-border_color border-solid   flex flex-wrap justify-between opacity-0 h-0    overflow-hidden 
+}
+.accordionContent.show {
+    @apply opacity-100  h-full    overflow-visible  
+}
+
+
+.accordionContent2 {
+    @apply pl-10  bg-panel pt-5 pb-9 pr-5  border-border_color border-solid   flex flex-wrap justify-between opacity-0 h-0    overflow-hidden 
+}
+.accordionContent2.show2 {
+    @apply opacity-100  h-full    overflow-visible  
+}

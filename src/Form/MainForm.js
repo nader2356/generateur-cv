@@ -1,21 +1,24 @@
 import { Formik } from "formik";
-
+import { useState } from "react";
 import * as Yup from "yup";
+import AboutMe, {
+  aboutMeInitialValues,
+  aboutMeValidationSchema,
+} from "../Section/AboutMe";
 
-import { Collapse } from "antd";
-
-
-const { Panel } = Collapse;
 
 const MainForm = () => {
   const validationSchema = Yup.object({
-    //about_me: aboutMeValidationSchema,
+    aboutMe: aboutMeValidationSchema,
+  
   });
 
+  const [Active, setActive] = useState("aboutMe");
+
   const mainSectionInitialValues = {
-    //aboutMe: aboutMeInitialValues,
+    aboutMe: aboutMeInitialValues,
+    
   };
-  console.log(mainSectionInitialValues);
 
   return (
     <div className="flex min-h-screen flex-col justify-center bg-[white] py-6 sm:px-6 lg:px-8">
@@ -28,23 +31,28 @@ const MainForm = () => {
       >
         {(formik) => {
           return (
-            <div className="mt-8 w-11/12 lg:-mt-80 lg:ml-14 ">
+            <div className=" w-11/12  h-full lg:ml-28">
               <form onSubmit={formik.handleSubmit}>
-                <Collapse accordion>
-                  <Panel
-                    showArrow={false}
-                    header={
-                      <h4 className="text-xl font-bold text-text_panel">
-                        Profil
-                      </h4>
-                    }
-                    key="2"
+                <AboutMe
+                  handleChange={formik.handleChange}
+                  namespace="aboutMe"
+                  values={formik.values.aboutMe}
+                  setActive={setActive}
+                  Active={Active}
+                  Titre="aboutMe"
+                />
+               
+               
+                
+                <div className="flex w-96 ml-28 mt-8 ">
+                  <button
+                    className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                            focus:ring-2 focus:ring-offset-2   w-48 justify-center "
+                    type="submit"
                   >
-                    <div className="w-11/12 ">
-                   
-                    </div>
-                  </Panel>
-                </Collapse>
+                    Sauvgarder
+                  </button>
+                </div>
               </form>
             </div>
           );
