@@ -11,7 +11,7 @@ export const Error = props =>  {
   return (
     <>
       {meta.touched && meta.error ? (
-        <h5 className="text-[#cf5454] text-[14px] mt-[15px]">{meta.error}</h5>
+        <h5 className="text-red text-sm mt-4">{meta.error}</h5>
       ) : null}
     </>
   );

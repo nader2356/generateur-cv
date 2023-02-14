@@ -15,7 +15,9 @@ module.exports = {
   },
 
     colors: {
+      
       blue: "#1fb6ff",
+      "red_error" : "#f87171",
       white: "#ffffff",
       purple: "#7e5bef",
       text_panel: "#38383d",
@@ -38,7 +40,7 @@ module.exports = {
         "3xl": "1600px",
       },
       margin : {
-        "600px" : "600px"
+        "500px" : "500px"
       },
       transitionTimingFunction: {
         'in-expo': 'ease-in-out',

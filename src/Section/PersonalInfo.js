@@ -6,7 +6,7 @@ import { Field } from "formik";
 
 export const userValidationSchema = Yup.object().shape({
   prenom: Yup.string().required(" Obligatoire"),
-  email: Yup.string().required("  Obligatoire"),
+  email: Yup.string().required("  Obligatoire").email(" valid email"),
   nom: Yup.string().required(" Obligatoire"),
   adresse: Yup.string().required(" Obligatoire"),
   phone: Yup.string().required(" Obligatoire"),
@@ -56,20 +56,12 @@ const PersonalInfo = ({
   Titre,
 }) => {
   const [uploadType] = useState("local");
-  console.log(values);
+ 
 
   return (
     <div
-      className={
-        values.nom === "" ||
-        values.prenom === "" ||
-        values.git === "" ||
-        values.email === "" ||
-        values.phone === "" || 
-        values.adresse === ""
-          ? " w-11/12 ml-1 border-red border-r-2  border-t-2  border-l-2  border-b-2"
-          : "w-11/12 ml-1 border-r-2  border-t-2  border-l-2  border-b-2"
-      }
+      className="w-11/12 ml-1  border-border_color border-r-2     border-l-2  "
+      
     >
       <div className="flex flex-row  justify-between  bg-panel  pt-3 h-14  pl-4 border-border_color border-solid  border-b-2 ">
         <h4 className="text-xl font-bold text-[#38383d] pt-0">
@@ -147,7 +139,7 @@ const PersonalInfo = ({
           <Error name={namespace + ".git"}></Error>
         </div>
         <div className="w-96   ml-1">
-          <h6 className="text-black text-lg font-normal mt-2">Photo</h6>
+          <h6 className="text-black text-lg font-normal mt-4">Photo</h6>
 
           {uploadType === "local" && (
             <Field
