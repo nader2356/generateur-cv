@@ -7,7 +7,7 @@
     @apply ml-7  bg-white    flex flex-wrap justify-between opacity-0 h-0    overflow-hidden 
 }
 .accordionContent.show {
-    @apply opacity-100  h-full   pb-12 overflow-visible  
+    @apply opacity-100  h-full   pb-8 overflow-visible  
 }
 
 
@@ -23,7 +23,5 @@
 .accordionContent3.show3 {
     @apply opacity-100  bg-white h-full    overflow-visible  
 }
-.active{
-    @apply  rotate-0;
-}
+
 

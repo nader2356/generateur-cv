@@ -62,12 +62,7 @@ const ParcourAcademique = ({
           <>
             <div className="w-11/12 ml-1   ">
               <div className="flex flex-row  justify-between  bg-panel     pt-3 h-14  pl-4 border-r-2     border-l-2 border-b-2 border-border_color">
-                <h4 className="text-xl font-bold text-black pt-0">{Titre}</h4>
-
-                <RightOutlined
-                  className="pt-2 pr-3"
-                  onClick={() => setActive(Titre)}
-                />
+                <h4 className="text-xl font-bold text-black pt-0">{Titre}</h4>               
               </div>
 
               {values.education.map((edu, index) => {
@@ -131,6 +126,8 @@ const ParcourAcademique = ({
                           <span>Ajouter un parcour Academique</span>
                         </button>
                       </div>
+                      <button  className=" text-sm font-medium h-10  ml-96   rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                            focus:ring-2 focus:ring-offset-2 mt-2 mr-800px mb-8  w-48 justify-center "  onClick={() => setActive("Expériences Professionnelles")} >suivant </button>
                     </div>
                   </>
                 );
@@ -138,7 +135,9 @@ const ParcourAcademique = ({
             </div>
           </>
         )}
+        
       ></FieldArray>
+      
     </div>
   );
 };

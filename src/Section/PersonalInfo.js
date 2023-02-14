@@ -67,7 +67,7 @@ const PersonalInfo = ({
         <h4 className="text-xl font-bold text-[#38383d] pt-0">
           Informations Personelles
         </h4>
-        <RightOutlined className="pt-2 pr-3" onClick={() => setActive(Titre)} />
+        
       </div>
       <div className={(Active === Titre ? "show2" : "") + " accordionContent2"}>
         <div className="w-96 mb-4 ml-1">
@@ -165,8 +165,13 @@ const PersonalInfo = ({
           )}
           <Error name={namespace + ".photo"}></Error>
         </div>
+        <button  className=" text-sm font-medium h-10  ml-8   rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                            focus:ring-2 focus:ring-offset-2 mt-2 mr-800px mb-8  w-48 justify-center "  onClick={() => setActive("Parcours Academique")} >suivant </button>
+                            
       </div>
+     
     </div>
+    
   );
 };
 

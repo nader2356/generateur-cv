@@ -9,6 +9,7 @@ export const aboutMeValidationSchema = Yup.object().shape({
   description: Yup.string().required(" Obligatoire"),
 });
 
+
 export const aboutMeInitialValues = {
   poste: "",
   description: "",
@@ -50,8 +51,10 @@ const AboutMe = ({
           />
           <Error name={namespace + ".description"} className="mb-1"></Error>
         </div>
+        <button  className="inline-flex items-center text-sm font-medium h-10 py-4 mr-5 mt-10 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                            focus:ring-2 focus:ring-offset-2   w-48 justify-center "  onClick={() => setActive("InfoPersonnelle")} >suivant </button>
       </div>
-      <button className="pt-2 pr-3" onClick={() => setActive(Titre)} >suivant </button>
+     
     </div>
   );
 };

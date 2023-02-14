@@ -40,6 +40,7 @@ module.exports = {
         "3xl": "1600px",
       },
       margin : {
+        "800px" : "800px",
         "500px" : "500px"
       },
       transitionTimingFunction: {
