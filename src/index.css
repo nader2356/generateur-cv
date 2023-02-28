@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.accordionContent {
+    @apply ml-7  bg-white    flex flex-wrap justify-between opacity-0 h-0    overflow-hidden 
+}
+.accordionContent.show {
+    @apply opacity-100  h-full   pb-8 overflow-visible  
+}
+
+
+.accordionContent2 {
+    @apply pl-10  bg-white     flex flex-wrap justify-between opacity-0 h-0    overflow-hidden 
+}
+.accordionContent2.show2 {
+    @apply opacity-100  h-full pt-4   overflow-visible  
+}
+.accordionContent3 {
+    @apply   bg-white   flex-wrap justify-between opacity-0 h-0  overflow-hidden 
+}
+.accordionContent3.show3 {
+    @apply opacity-100  bg-white h-full    overflow-visible  
+}
+
+
