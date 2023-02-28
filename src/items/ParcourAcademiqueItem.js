@@ -3,7 +3,7 @@ import { Field } from "formik";
 import { CloseCircleOutlined, RightOutlined } from "@ant-design/icons";
 import { Error } from "../Component/Error";
 import { MyTextField } from "../Component/util/TextField";
-import { useEffect } from "react";
+
 
 const ParcoursAcadémqueItems = ({
   index,
@@ -16,9 +16,6 @@ const ParcoursAcadémqueItems = ({
   activeIndex,
 }) => {
 
-    useEffect(() => {
-        setActiveIndex(index)
-      }, [index, activeIndex, setActiveIndex]);
   return (
     <div className="   pl-4 pr-4 mt-2  " key={index}>
       <div className="grid grid-cols-3   bg-panel mt-5 mb-5  border-border_color border-solid  border-b-2 border-l-2 border-r-2 border-t-2   h-14  pl-4 pt-3 ">
@@ -34,7 +31,7 @@ const ParcoursAcadémqueItems = ({
           />
           <RightOutlined
             className="pt-2 pr-3 cursor-pointer "
-    
+            onClick={() =>  setActiveIndex(index)}
           />
         </div>
       </div>

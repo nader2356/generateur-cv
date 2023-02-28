@@ -4,7 +4,6 @@ import { PlusCircleOutlined, RightOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import ParcoursAcadémqueItems from "../items/ParcourAcademiqueItem";
 
-
 const schoolInitialValues = {
   nomDuDiplome: "",
   Lieu: "",
@@ -46,15 +45,9 @@ const ParcourAcademique = ({
 
   const [error, setError] = useState("");
   const [errorDate, setErrorDate] = useState("");
-
   const [activeIndex, setActiveIndex] = useState(0);
 
-
-
-
-
   const testData = (values, arrayHelpers) => {
-   
     const endDate = new Date(values[values.length - 1].endDate);
     const startDate = new Date(values[values.length - 1].startDate);
 
@@ -71,7 +64,6 @@ const ParcourAcademique = ({
       setError(" veuillez completer  les champs ");
     } else {
       arrayHelpers.push(schoolInitialValues);
-  
     }
   };
 

@@ -35,8 +35,6 @@ const ExperienceProfessionnelle = ({
   handleChange,
   namespace,
   values,
-  activeIndex,
-  setActiveIndex,
   Active,
   setActive,
   Titre,
@@ -47,6 +45,7 @@ const ExperienceProfessionnelle = ({
   };
   const [error, setError] = useState("");
   const [errorDate, setErrorDate] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
   const testData = (values, arrayHelpers) => {
     let start_date = new Date(values[values.length - 1].startDate);
     let end_date = new Date(values[values.length - 1].endDate);

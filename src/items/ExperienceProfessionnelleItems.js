@@ -2,7 +2,6 @@ import { Field } from "formik";
 import { CloseCircleOutlined, RightOutlined } from "@ant-design/icons";
 import { Error } from "../Component/Error";
 import { MyTextField } from "../Component/util/TextField";
-import { useEffect } from "react";
 
 const ExperienceProfessionnelleItems = ({
   index,
@@ -15,9 +14,7 @@ const ExperienceProfessionnelleItems = ({
   activeIndex,
   exp,
 }) => {
-    useEffect(() => {
-        setActiveIndex(index)
-      }, [index, activeIndex, setActiveIndex]);
+
   return (
     <div className="  pl-4 pr-4 mt-2 container" key={index}>
       <div className="grid grid-cols-3   bg-panel mt-5 mb-5  border-border_color border-solid  border-b-2 border-l-2 border-r-2 border-t-2   h-14  pl-4 pt-3 ">
@@ -93,8 +90,9 @@ const ExperienceProfessionnelleItems = ({
                 />
               </div>
             </div>
+            
           </div>
-          <h5 className="text-red mt-2  ">{errorDate}</h5>
+          <h5 className="text-red    ">{errorDate}</h5>
           <div className="flex  space-x-5">
             <div className="w-1/2 ">
               <h6 className="text-black text-lg">Type d’emploi*</h6>
