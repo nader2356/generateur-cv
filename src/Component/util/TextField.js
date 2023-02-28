@@ -2,14 +2,9 @@ import { Field, useField } from "formik";
 import { useEffect, useState } from "react";
 export const MyTextField = (props) => {
   const [field] = useField(props);
-
   const limit = 600;
-
   const [charCount, setcharcount] = useState(0);
-
-  useEffect(() => {
-    
-  }, [charCount]);
+  useEffect(() => {}, [charCount]);
 
   return (
     <>

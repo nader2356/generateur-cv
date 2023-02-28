@@ -54,7 +54,7 @@ const ParcourAcademique = ({
 
 
   const testData = (values, arrayHelpers) => {
-    console.log(values.length)
+   
     const endDate = new Date(values[values.length - 1].endDate);
     const startDate = new Date(values[values.length - 1].startDate);
 
