@@ -36,7 +36,6 @@ const MainForm = () => {
   const [save, setSave] = useState(true);
   const [reinitialiserValues, setReinitialiser] = useState(null);
 
-
   const downloadPdf = () => {
     const documentDefinition = getDocumentDefinition();
     console.log(documentDefinition);
@@ -102,77 +101,78 @@ const MainForm = () => {
         >
           {(formik) => {
             return (
-              <div className=" w-11/12  h-full ml-20">
-                <form onSubmit={formik.handleSubmit}>
-                  <AboutMe
-                    handleChange={formik.handleChange}
-                    namespace="aboutMe"
-                    values={formik.values.aboutMe}
-                    setActive={setActive}
-                    Active={active}
-                    Titre="Profil"
-                  />
+              <div className="flex min-h-screen flex-col justify-center bg-white ">
+                <div className="mb-auto ml-500px sm:pl-8 sm:mx-auto sm:w-full sm:max-w-7xl">
+                  <form onSubmit={formik.handleSubmit}>
+                    <AboutMe
+                      handleChange={formik.handleChange}
+                      namespace="aboutMe"
+                      values={formik.values.aboutMe}
+                      setActive={setActive}
+                      Active={active}
+                      Titre="Profil"
+                    />
 
-                  <PersonalInfo
-                    handleChange={formik.handleChange}
-                    namespace="infoPersonnelle"
-                    setFieldValue={formik.setFieldValue}
-                    values={formik.values.infoPersonnelle}
-                    setActive={setActive}
-                    Active={active}
-                    Titre="Informations Personnelles"
-                  />
-                  <ParcourAcademique
-                    handleChange={formik.handleChange}
-                    values={formik.values.education}
-                    namespace="education"
-                    Titre="Parcours Académique"
-                    setActive={setActive}
-                    Active={active}
-                  />
+                    <PersonalInfo
+                      handleChange={formik.handleChange}
+                      namespace="infoPersonnelle"
+                      setFieldValue={formik.setFieldValue}
+                      values={formik.values.infoPersonnelle}
+                      setActive={setActive}
+                      Active={active}
+                      Titre="Informations Personnelles"
+                    />
+                    <ParcourAcademique
+                      handleChange={formik.handleChange}
+                      values={formik.values.education}
+                      namespace="education"
+                      Titre="Parcours Académique"
+                      setActive={setActive}
+                      Active={active}
+                    />
 
-                  <ExperienceProfessionnelle
-                    handleChange={formik.handleChange}
-                    namespace="experienceProfessionnelle"
-                    values={formik.values.experienceProfessionnelle}
-                    Titre="Expériences Professionnelles"
-            
-                    setActive={setActive}
-                    Active={active}
-                  />
+                    <ExperienceProfessionnelle
+                      handleChange={formik.handleChange}
+                      namespace="experienceProfessionnelle"
+                      values={formik.values.experienceProfessionnelle}
+                      Titre="Expériences Professionnelles"
+                      setActive={setActive}
+                      Active={active}
+                    />
 
-                  <div className="flex w-11/12 pl-80 mt-8 ">
-                    {save && (
-                      <button
-                        className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                    <div className="flex w-11/12 pl-80 mt-8 ">
+                      {save && (
+                        <button
+                          className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2   w-48 justify-center "
-                        type="submit"
-                      >
-                        Sauvgarder
-                      </button>
-                    )}
-                    {download && (
-                      <button
-                        className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                          type="submit"
+                        >
+                          Sauvgarder
+                        </button>
+                      )}
+                      {download && (
+                        <button
+                          className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2   w-48 justify-center "
-                        type="button"
-                        onClick={() => downloadPdf()}
-                      >
-                        telecharger
-                      </button>
-                    )}
-                    {initialiser && (
-                      <button
-                        className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                          type="button"
+                          onClick={() => downloadPdf()}
+                        >
+                          telecharger
+                        </button>
+                      )}
+                      {initialiser && (
+                        <button
+                          className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2   w-48 justify-center "
-                        type="reset"
-                        onClick={() => initialiserform()}
-                      >
-                        initialiser
-                      </button>
-                    )}
-                  </div>
-                </form>
+                          type="reset"
+                          onClick={() => initialiserform()}
+                        >
+                          initialiser
+                        </button>
+                      )}
+                    </div>
+                  </form>
+                </div>
               </div>
             );
           }}

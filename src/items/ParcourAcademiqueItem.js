@@ -38,7 +38,7 @@ const ParcoursAcadémqueItems = ({
       {activeIndex === index ? (
         <div className="  pt-5 overflow-visible opacity-100 h-full  border-border_color -mt-5 pb-8 w-full  pl-8 pr-10 border-l-2  border-r-2  border-b-2 ">
           <div className="flex  space-x-5">
-            <div className="w-1/2">
+            <div className="w-1/2 mb-2">
               <div className="flex space-x-5">
                 <div className="w-11/12">
                   <h6 className="text-black text-lg"> Date de début*</h6>
@@ -49,6 +49,7 @@ const ParcoursAcadémqueItems = ({
                     placeholder="ex : 20/05/2023"
                     className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2 sm:max-w-sm   border-solid border w-full border-barckground_textarea"
                   />
+                  <Error name={namespace + `.education.${index}.startDate`} />
                 </div>
                 <div className="w-11/12">
                   <h6 className="text-black text-lg">Date de fin*</h6>
@@ -59,10 +60,11 @@ const ParcoursAcadémqueItems = ({
                     placeholder="ex : 20/06/2023"
                     className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2   border-solid border w-full border-barckground_textarea"
                   />
+                   <Error name={namespace + `.education.${index}.endDate`} />
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 mb-2">
               <h6 className="text-black  text-lg">Nom de l'école*</h6>
               <Field
                 type="text"
@@ -73,8 +75,9 @@ const ParcoursAcadémqueItems = ({
               />
               <Error name={namespace + `.education.${index}.nomDeLecole`} />
             </div>
+            
           </div>
-          <h5 className="text-red   mt-2 ">{errorDate}</h5>
+          <h5 className="text-red ">{errorDate}</h5>
           <div className="flex  space-x-5">
             <div className="w-1/2  ">
               <h6 className="text-black text-lg">Nom du diplôme*</h6>

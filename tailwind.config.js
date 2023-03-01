@@ -44,7 +44,8 @@ module.exports = {
       margin : {
         "800px" : "800px",
         "1150px" : "1150px",
-        "500px" : "500px"
+        "500px" : "500px",
+        "420px": "420px"
       },
       transitionTimingFunction: {
         'in-expo': 'ease-in-out',

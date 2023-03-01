@@ -37,7 +37,7 @@ const ExperienceProfessionnelleItems = ({
       {activeIndex === index ? (
         <div className="   pt-5 overflow-visible opacity-100 h-full  border-border_color -mt-5 pb-8 w-full  pl-8 pr-10 border-l-2  border-r-2  border-b-2 ">
           <div className="flex  space-x-5">
-            <div className="w-1/2">
+            <div className="w-1/2 mb-2">
               <div className="flex space-x-4">
                 <div className="w-11/12">
                   <h6 className="text-black text-lg"> Date de début*</h6>
@@ -51,6 +51,13 @@ const ExperienceProfessionnelleItems = ({
                     placeholder="ex : 20/05/2023"
                     className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2   border-solid border w-full border-barckground_textarea"
                   />
+                    <Error
+                  name={
+                    namespace +
+                    `.experienceProfessionnelle.${index}.startDate`
+                  }
+                />
+
                 </div>
                 <div className="w-11/12">
                   <h6 className="text-black text-lg">Date de fin*</h6>
@@ -63,11 +70,17 @@ const ExperienceProfessionnelleItems = ({
                     placeholder="ex : 20/06/2023"
                     className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2   border-solid border w-full border-barckground_textarea"
                   />
+                    <Error
+                  name={
+                    namespace +
+                    `.experienceProfessionnelle.${index}.endDate`
+                  }
+                />
                 </div>
               </div>
             </div>
 
-            <div className="w-1/2">
+            <div className="w-1/2 mb-2">
               <div className="w-full space-x-0">
                 <h6 className="text-black  text-lg  ml-1">
                   nom de l entreprise *
@@ -80,7 +93,7 @@ const ExperienceProfessionnelleItems = ({
                     `.experienceProfessionnelle.${index}.nomDulEntreprise`
                   }
                   placeholder=" ex : Proxym"
-                  className="bg-panel rounded-md  mt-4  -ml-3 pt-2 pb-2 pl-2 w-full   border-solid border   border-barckground_textarea"
+                  className="bg-panel rounded-md  mt-4  -ml-3 pt-2 pb-2 pl-y2 w-full   border-solid border   border-barckground_textarea"
                 />
                 <Error
                   name={
