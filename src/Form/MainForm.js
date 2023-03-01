@@ -102,7 +102,7 @@ const MainForm = () => {
           {(formik) => {
             return (
               <div className="flex min-h-screen flex-col justify-center bg-white ">
-                <div className="mb-auto ml-500px sm:pl-8 sm:mx-auto sm:w-full sm:max-w-7xl">
+                <div className="mb-auto ml-420px  sm:mx-auto sm:w-full sm:max-w-7xl">
                   <form onSubmit={formik.handleSubmit}>
                     <AboutMe
                       handleChange={formik.handleChange}

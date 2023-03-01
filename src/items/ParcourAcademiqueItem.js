@@ -36,7 +36,7 @@ const ParcoursAcadémqueItems = ({
         </div>
       </div>
       {activeIndex === index ? (
-        <div className="  pt-5 overflow-visible opacity-100 h-full  border-border_color -mt-5 pb-8 w-full  pl-8 pr-10 border-l-2  border-r-2  border-b-2 ">
+        <div className="  pt-5 overflow-visible opacity-100 h-full  border-border_color -mt-5 pb-8   pl-8 pr-10 border-l-2  border-r-2  border-b-2 ">
           <div className="flex  space-x-5">
             <div className="w-1/2 mb-2">
               <div className="flex space-x-5">
