@@ -76,109 +76,104 @@ const MainForm = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center md:mt-1   rounded-xl h-auto pt-14 bg-white">
-      <div className="   mb-4  sm:max-w-8xl ml-11 sm:mx-auto sm:w-full  ">
-        <Formik
-          initialValues={mainSectionInitialValues || reinitialiserValues}
-          validationSchema={validationSchema}
-          enableReinitialize
-          onSubmit={(values) => {
-            console.log(values);
-            localStorage.setItem("about_me", JSON.stringify(values.aboutMe));
-            localStorage.setItem(
-              "personal_info",
-              JSON.stringify(values.infoPersonnelle)
-            );
-            localStorage.setItem("education", JSON.stringify(values.education));
-            setdownload(true);
-            setSave(false);
-            setInitialiser(true);
-            localStorage.setItem(
-              "experience_professionelles",
-              JSON.stringify(values.experienceProfessionnelle)
-            );
-          }}
-        >
-          {(formik) => {
-            return (
-              <div className="flex min-h-screen flex-col justify-center bg-white ">
-                <div className="mb-auto ml-420px  sm:mx-auto sm:w-full sm:max-w-7xl">
-                  <form onSubmit={formik.handleSubmit}>
-                    <AboutMe
-                      handleChange={formik.handleChange}
-                      namespace="aboutMe"
-                      values={formik.values.aboutMe}
-                      setActive={setActive}
-                      Active={active}
-                      Titre="Profil"
-                    />
+    <Formik
+      initialValues={mainSectionInitialValues || reinitialiserValues}
+      validationSchema={validationSchema}
+      enableReinitialize
+      onSubmit={(values) => {
+        console.log(values);
+        localStorage.setItem("about_me", JSON.stringify(values.aboutMe));
+        localStorage.setItem(
+          "personal_info",
+          JSON.stringify(values.infoPersonnelle)
+        );
+        localStorage.setItem("education", JSON.stringify(values.education));
+        setdownload(true);
+        setInitialiser(true);
+        localStorage.setItem(
+          "experience_professionelles",
+          JSON.stringify(values.experienceProfessionnelle)
+        );
+      }}
+    >
+      {(formik) => {
+        return (
+          <div className="flex  flex-col justify-center items-center    mt-16  ml-20  bg-white ">
+            <div className="mb-16 ml-800px  min-w-max min-h-max sm:mx-auto sm:w-full sm:max-w-7xl">
+              <form onSubmit={formik.handleSubmit}>
+                <AboutMe
+                  handleChange={formik.handleChange}
+                  namespace="aboutMe"
+                  values={formik.values.aboutMe}
+                  setActive={setActive}
+                  Active={active}
+                  Titre="Profil"
+                />
 
-                    <PersonalInfo
-                      handleChange={formik.handleChange}
-                      namespace="infoPersonnelle"
-                      setFieldValue={formik.setFieldValue}
-                      values={formik.values.infoPersonnelle}
-                      setActive={setActive}
-                      Active={active}
-                      Titre="Informations Personnelles"
-                    />
-                    <ParcourAcademique
-                      handleChange={formik.handleChange}
-                      values={formik.values.education}
-                      namespace="education"
-                      Titre="Parcours Académique"
-                      setActive={setActive}
-                      Active={active}
-                    />
+                <PersonalInfo
+                  handleChange={formik.handleChange}
+                  namespace="infoPersonnelle"
+                  setFieldValue={formik.setFieldValue}
+                  values={formik.values.infoPersonnelle}
+                  setActive={setActive}
+                  Active={active}
+                  Titre="Informations Personnelles"
+                />
+                <ParcourAcademique
+                  handleChange={formik.handleChange}
+                  values={formik.values.education}
+                  namespace="education"
+                  Titre="Parcours Académique"
+                  setActive={setActive}
+                  Active={active}
+                />
 
-                    <ExperienceProfessionnelle
-                      handleChange={formik.handleChange}
-                      namespace="experienceProfessionnelle"
-                      values={formik.values.experienceProfessionnelle}
-                      Titre="Expériences Professionnelles"
-                      setActive={setActive}
-                      Active={active}
-                    />
+                <ExperienceProfessionnelle
+                  handleChange={formik.handleChange}
+                  namespace="experienceProfessionnelle"
+                  values={formik.values.experienceProfessionnelle}
+                  Titre="Expériences Professionnelles"
+                  setActive={setActive}
+                  Active={active}
+                />
 
-                    <div className="flex w-11/12 pl-80 mt-8 ">
-                      {save && (
-                        <button
-                          className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                <div className="flex w-11/12  pl-80 mt-8 ">
+                  {save && (
+                    <button
+                      className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2   w-48 justify-center "
-                          type="submit"
-                        >
-                          Sauvgarder
-                        </button>
-                      )}
-                      {download && (
-                        <button
-                          className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                      type="submit"
+                    >
+                      Sauvgarder
+                    </button>
+                  )}
+                  {download && (
+                    <button
+                      className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2   w-48 justify-center "
-                          type="button"
-                          onClick={() => downloadPdf()}
-                        >
-                          telecharger
-                        </button>
-                      )}
-                      {initialiser && (
-                        <button
-                          className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
+                      type="button"
+                      onClick={() => downloadPdf()}
+                    >
+                      telecharger
+                    </button>
+                  )}
+                  {initialiser && (
+                    <button
+                      className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2   w-48 justify-center "
-                          type="reset"
-                          onClick={() => initialiserform()}
-                        >
-                          initialiser
-                        </button>
-                      )}
-                    </div>
-                  </form>
+                      type="reset"
+                      onClick={() => initialiserform()}
+                    >
+                      initialiser
+                    </button>
+                  )}
                 </div>
-              </div>
-            );
-          }}
-        </Formik>
-      </div>
-    </div>
+              </form>
+            </div>
+          </div>
+        );
+      }}
+    </Formik>
   );
 };
 

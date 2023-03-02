@@ -12,7 +12,6 @@ const getProfilePicObject = () => {
       image: JSON.parse(localStorage.getItem("personal_info") || "").photo,
       width: 100,
       alignment: "left",
-      
     };
   } else {
     return {
@@ -47,9 +46,9 @@ const getEducationObject = () => {
             ],
             {
               text:
-                moment(education.startDate).format('DD-MM-YYYY') +
+                moment(education.startDate).format("DD-MM-YYYY") +
                 "  -  " +
-                moment(education.endDate).format('DD-MM-YYYY'),
+                moment(education.endDate).format("DD-MM-YYYY"),
               width: "40%",
               color: "#075985",
             },
@@ -58,7 +57,6 @@ const getEducationObject = () => {
           layout: "noBorders",
         },
       ]);
-      
     });
 
     return {
@@ -75,8 +73,13 @@ const getExperienceObject = () => {
   const exs = [];
   if (localStorage.getItem("experience_professionelles")) {
     console.log(localStorage.getItem("experience_professionelles"));
-    localStorage.setItem("experience_professionelles", localStorage.getItem("experience_professionelles"));
-    const experience_professionelle = JSON.parse(localStorage.getItem("experience_professionelles")).experienceProfessionnelle;
+    localStorage.setItem(
+      "experience_professionelles",
+      localStorage.getItem("experience_professionelles")
+    );
+    const experience_professionelle = JSON.parse(
+      localStorage.getItem("experience_professionelles")
+    ).experienceProfessionnelle;
     experience_professionelle.map((experience_professionelle) => {
       exs.push([
         {
@@ -84,30 +87,44 @@ const getExperienceObject = () => {
             [
               {
                 text: experience_professionelle.typeDEmploi,
-                margin: [0, 0, 0, 0],
+
                 bold: true,
+                alignment: "left",
+              },
+
+              {
+                text:
+                  moment(experience_professionelle.startDate).format(
+                    "DD-MM-YYYY"
+                  ) +
+                  "  -  " +
+                  moment(experience_professionelle.endDate).format(
+                    "DD-MM-YYYY"
+                  ),
+                width: "20%",
+                color: "#075985",
+                margin: [0, -12, 65, 0],
+                alignment: "right",
               },
               {
-                text: experience_professionelle.nomDulEntreprise + "  ,  " + experience_professionelle.lieu,
-                margin: [0, 3, 0, 0],
+                text:
+                  experience_professionelle.nomDulEntreprise +
+                  ", " +
+                  experience_professionelle.lieu,
+                width: "20%",
+
+                bold: true,
                 color: "#075985",
               },
               {
-                text:experience_professionelle.detail,
-                margin: [0, 3, 0, 0],
-                
-              },
+                text: experience_professionelle.detail,
+                width: "80%",
 
+                bold: true,
+              },
             ],
-            {
-              text:
-                moment(experience_professionelle.startDate).format('DD-MM-YYYY') +
-                "  -  " +
-                moment(experience_professionelle.endDate).format('DD-MM-YYYY'),
-              width: "40%",
-              color: "#075985",
-            },
           ],
+
           border: [false, false, false, false],
           layout: "noBorders",
         },
@@ -284,13 +301,13 @@ export const getDocumentDefinition = () => {
         fontSize: 16,
         bold: true,
         color: "black",
-        margin: [0, 10, 0, 20],
+        margin: [0, 10, 0, 10],
       },
       ExpériencesProfessionnelles: {
         fontSize: 16,
         bold: true,
         color: "black",
-        margin: [0, 10, 0, 20],
+        margin: [0, 10, 0, 10],
       },
       Profil: {
         fontSize: 16,

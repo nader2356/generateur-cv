@@ -17,7 +17,7 @@ const ParcoursAcadémqueItems = ({
 }) => {
 
   return (
-    <div className="   pl-4 pr-4 mt-2  " key={index}>
+    <div className="   pl-4 pr-4 mt-2 container " key={index}>
       <div className="grid grid-cols-3   bg-panel mt-5 mb-5  border-border_color border-solid  border-b-2 border-l-2 border-r-2 border-t-2   h-14  pl-4 pt-3 ">
         <h4 className="text-xl  col-span-1 font-bold w-96 text-black  pt-0">
           Parcours Académique n {index + 1}
@@ -36,7 +36,7 @@ const ParcoursAcadémqueItems = ({
         </div>
       </div>
       {activeIndex === index ? (
-        <div className="  pt-5 overflow-visible opacity-100 h-full  border-border_color -mt-5 pb-8   pl-8 pr-10 border-l-2  border-r-2  border-b-2 ">
+        <div className="  pt-5 overflow-visible opacity-100 h-full  border-border_color -mt-5 pb-8    pl-8 pr-10 border-l-2  border-r-2  border-b-2 ">
           <div className="flex  space-x-5">
             <div className="w-1/2 mb-2">
               <div className="flex space-x-5">

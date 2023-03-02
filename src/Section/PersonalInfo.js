@@ -60,7 +60,7 @@ const PersonalInfo = ({
   const [uploadType] = useState("local");
 
   return (
-    <div className="w-11/12 ml-1  border-border_color border-r-2      border-l-2  ">
+    <div className="w-11/12 ml-1  border-border_color border-r-2       border-l-2  ">
       <div className="flex flex-row  justify-between  bg-panel  pt-3 h-14 border-t-2 pl-4 border-border_color border-solid  ">
         <h4 className="text-xl font-bold text-[#38383d] pt-0">
           Informations Personelles
