@@ -4,8 +4,10 @@ import { base64OfImage } from "../Component/Base64OfImage";
 
 const getProfilePicObject = () => {
   if (localStorage.getItem("personal_info"))
-    console.log(localStorage.getItem("personal_info"));
-  localStorage.setItem("personal_info", localStorage.getItem("personal_info"));
+    localStorage.setItem(
+      "personal_info",
+      localStorage.getItem("personal_info")
+    );
 
   if (JSON.parse(localStorage.getItem("personal_info")).photo !== "") {
     return {
@@ -25,7 +27,6 @@ const getProfilePicObject = () => {
 const getEducationObject = () => {
   const exs = [];
   if (localStorage.getItem("education")) {
-    console.log(localStorage.getItem("education"));
     localStorage.setItem("education", localStorage.getItem("education"));
     const education = JSON.parse(localStorage.getItem("education")).education;
     education.map((education) => {
@@ -72,7 +73,6 @@ const getEducationObject = () => {
 const getExperienceObject = () => {
   const exs = [];
   if (localStorage.getItem("experience_professionelles")) {
-    console.log(localStorage.getItem("experience_professionelles"));
     localStorage.setItem(
       "experience_professionelles",
       localStorage.getItem("experience_professionelles")
@@ -143,7 +143,7 @@ const getExperienceObject = () => {
 };
 export const getDocumentDefinition = () => {
   if (localStorage.getItem("personal_info"))
-    console.log(localStorage.getItem("personal_info"));
+
   localStorage.setItem("personal_info", localStorage.getItem("personal_info"));
 
   return {

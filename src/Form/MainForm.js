@@ -38,7 +38,7 @@ const MainForm = () => {
 
   const downloadPdf = () => {
     const documentDefinition = getDocumentDefinition();
-    console.log(documentDefinition);
+   
     pdfMake.createPdf(documentDefinition).open();
   };
   const initialiserform = () => {
@@ -81,7 +81,7 @@ const MainForm = () => {
       validationSchema={validationSchema}
       enableReinitialize
       onSubmit={(values) => {
-        console.log(values);
+        
         localStorage.setItem("about_me", JSON.stringify(values.aboutMe));
         localStorage.setItem(
           "personal_info",
@@ -99,7 +99,7 @@ const MainForm = () => {
       {(formik) => {
         return (
           <div className="flex  flex-col justify-center items-center    mt-16  ml-20  bg-white ">
-            <div className="mb-16 ml-800px  min-w-max min-h-max sm:mx-auto sm:w-full sm:max-w-7xl">
+            <div className="mb-16 ml-800px  min-w-max min-h-max   sm:mx-auto sm:w-full sm:max-w-7xl">
               <form onSubmit={formik.handleSubmit}>
                 <AboutMe
                   handleChange={formik.handleChange}
@@ -137,7 +137,7 @@ const MainForm = () => {
                   Active={active}
                 />
 
-                <div className="flex w-11/12  pl-80 mt-8 ">
+                <div className="flex w-11/12  justify-center mt-8 ">
                   {save && (
                     <button
                       className="inline-flex items-center text-sm font-medium h-15  py-4 mr-5 rounded-md border border-transparent text-white bg-black  focus:outline-none 
