@@ -92,7 +92,10 @@ const ParcourAcademique = ({
 
   };
 
+  
+
   const [activeIndex, setActiveIndex] = useState(0);
+  
 
   return (
     <div className=" w-full h-full   ">
