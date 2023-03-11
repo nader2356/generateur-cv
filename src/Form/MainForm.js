@@ -76,9 +76,6 @@ const MainForm = () => {
 
   const handleChangeProfile = (e) => {
     const { name, value } = e.target;
-    if (e.target.name === "description") {
-      setCharCount(e.target.value.length);
-    }
     setFormValuesOfProfile({ ...formValuesOProfile, [name]: value });
     setFormProfileErrors(validateProfile(formValuesOProfile));
   };
@@ -92,12 +89,13 @@ const MainForm = () => {
   const validateProfile = (values) => {
     const errors = {};
 
-    if (values.poste === "") {
+    if (!values.poste) {
       errors.poste = "Obligatoire";
     }
-    if (values.description === "") {
+    if (!values.description) {
       errors.description = "Obligatoire";
     }
+
     return errors;
   };
 
@@ -131,18 +129,28 @@ const MainForm = () => {
     if (!values.phone) {
       errors.phone = "Obligatoire";
     }
-
+    
     return errors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setFormProfileErrors(validateProfile(formValuesOProfile));
     setFormPeronalInfoErrors(validatePersonalInfo(formValuesOPersonalInfo));
+
+    const f = validateProfile(formValuesOProfile);
+    const d = validatePersonalInfo(formValuesOPersonalInfo);
+    console.log(f,d)
     if (
-      validateProfile(formValuesOProfile) ||
-      validatePersonalInfo(formValuesOPersonalInfo)
-    ) {
+      f.poste === 'Obligatoire' ||
+      f.description === "Obligatoire" ||
+      d.nom === "Obligatoire" ||
+      d.prenom === "Obligatoire" ||
+      d.git === "Obligatoire" ||
+      d.phone === "Obligatoire" ||
+      d.adresse === "Obligatoire" || 
+      d.email === "Obligatoire"    ) {
       setdownload(false);
       setInitialiser(false);
     } else {
@@ -188,6 +196,7 @@ const MainForm = () => {
             Titre="Profil"
             isLimit={isLimit}
             charCount={charCount}
+            validateProfile={validateProfile}
             limit={limit}
           />
 
@@ -197,6 +206,7 @@ const MainForm = () => {
             setFormValuesOfPersonalInfo={setFormValuesOfPersonalInfo}
             handleChangePersonalInfo={handleChangePersonalInfo}
             setActive={setActive}
+            validatePersonalInfo={validatePersonalInfo}
             Active={active}
             Titre="Informations Personnelles"
           />

@@ -95,7 +95,8 @@ const ParcourAcademique = ({
   
 
   const [activeIndex, setActiveIndex] = useState(0);
-  
+  const [isActive, setIsActive] = useState(false);
+
 
   return (
     <div className=" w-full h-full   ">
@@ -118,6 +119,8 @@ const ParcourAcademique = ({
                     setformValuesOParcourAcademique={setformValuesOParcourAcademique}
                     message={message}
                     education={edu}
+                    setIsActive ={setIsActive}
+                    isActive={isActive}
                     setActiveIndex={setActiveIndex}
                     activeIndex={activeIndex}
                   ></ParcoursAcadémqueItems>

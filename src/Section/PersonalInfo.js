@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { RightOutlined } from "@ant-design/icons";
+import { useEffect } from "react";
+import { base64OfImage } from "../Component/Base64OfImage";
+import logo from "../img/kmlklmk.PNG";
 
 const getBase64 = (file) => {
   return new Promise((resolve) => {
@@ -26,10 +29,10 @@ const PersonalInfo = ({
   Titre,
   formValuesOPersonalInfo,
   formErrorPersonalInfo,
+  validatePersonalInfo,
 }) => {
-
-  
   const [uploadType] = useState("local");
+  const error = validatePersonalInfo(formValuesOPersonalInfo);
 
   return (
     <div className="w-11/12 ml-1  border-border_color border-r-2       border-l-2  ">
@@ -80,7 +83,9 @@ const PersonalInfo = ({
                 </div>
 
                 <div className="w-full  space-x-8 ">
-                  <h6 className="text-black text-lg font-normal ml-8">Email*</h6>
+                  <h6 className="text-black text-lg font-normal ml-8">
+                    Email*
+                  </h6>
                   <input
                     type="text"
                     name="email"
@@ -160,15 +165,18 @@ const PersonalInfo = ({
                 type="file"
                 className="bg-panel rounded-md pt-2 pb-2  mb-5 mt-4 pl-2  w-11/12 border-solid border border-barckground_textarea"
                 accept=".jpg, .jpeg, .png"
+                id="myFile"
                 name="photo"
-                value={formValuesOPersonalInfo.photo}
                 onChange={(e) => {
                   let file = e.target.files.item(0);
+                  console.log(file);
                   getBase64(file)
                     .then((result) => {
                       if (result) {
                         formValuesOPersonalInfo.photo = result;
+                        console.log(result);
                       }
+                      console.log(formValuesOPersonalInfo.photo);
                     })
                     .catch((err) => {});
                 }}
@@ -183,7 +191,20 @@ const PersonalInfo = ({
             <button
               className=" text-sm font-medium h-10  mr-10   rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2 mt-3  mb-4  w-32 "
-              onClick={() => setActive("Parcours Académique")}
+              onClick={() => {
+                if (
+                  error.nom === "Obligatoire" ||
+                  error.prenom === "Obligatoire" ||
+                  error.adresse === "Obligatoire" ||
+                  error.git === "Obligatoire" ||
+                  error.email === "Obligatoire" ||
+                  error.phone === "Obligatoire"
+                ) {
+                  setActive("Informations Personnelles");
+                } else {
+                  setActive("Parcours Académique");
+                }
+              }}
             >
               suivant{" "}
             </button>

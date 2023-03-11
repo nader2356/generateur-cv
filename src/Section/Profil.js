@@ -9,10 +9,9 @@ const Profil = ({
   charCount,
   isLimit,
   limit,
+  validateProfile,
 }) => {
-
-  
-
+  const error = validateProfile(formValuesOProfile);
 
   return (
     <div className="w-11/12 ml-1  border-border_color border-r-2    border-l-2 ">
@@ -31,7 +30,7 @@ const Profil = ({
               <input
                 type="text"
                 onChange={handleChangeProfile}
-                value={formValuesOProfile.poste  }
+                value={formValuesOProfile.poste}
                 name="poste"
                 placeholder=" ex : Ingenieur"
                 className="bg-panel rounded-md pt-2 pb-2  pl-2 w-full   border-solid border border-barckground_textarea"
@@ -44,7 +43,6 @@ const Profil = ({
                 Description*
               </h6>
               <textarea
-                 
                 maxLength="600"
                 value={formValuesOProfile.description}
                 onChange={handleChangeProfile}
@@ -58,16 +56,20 @@ const Profil = ({
               >
                 {charCount} / {limit}
               </div>
-              <h5 className="text-red text-sm   ">
-                {formErrors.description}
-              </h5>
+              <h5 className="text-red text-sm   ">{formErrors.description}</h5>
             </div>
           </div>
           <div className="flex justify-end">
             <button
               className=" items-center text-sm font-medium h-10  mr-10 mt-10 mb-5   rounded-md border border-transparent text-white bg-black  focus:outline-none 
                             focus:ring-2 focus:ring-offset-2   w-32  "
-              onClick={() => setActive("Informations Personnelles")}
+              onClick={() => {
+                if (error.poste === "Obligatoire" || error.description === "Obligatoire") {
+                  setActive("Profil")
+                } else {
+                  setActive("Informations Personnelles");
+                }
+              }}
             >
               suivant{" "}
             </button>

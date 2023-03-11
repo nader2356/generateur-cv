@@ -9,26 +9,25 @@ const ParcoursAcadémqueItems = ({
   setformValuesOParcourAcademique,
   education,
   message,
+  isActive,
+  setIsActive,
 }) => {
   useEffect(() => {
-    setActiveIndex(index); 
-    setformValuesOParcourAcademique(formValuesOParcourAcademique)
-  }, [formValuesOParcourAcademique, index, setActiveIndex, setformValuesOParcourAcademique]);
+    setActiveIndex(index);
+    setformValuesOParcourAcademique(formValuesOParcourAcademique);
+  }, [formValuesOParcourAcademique, index, isActive, setActiveIndex, setIsActive, setformValuesOParcourAcademique]);
 
   const onHandle = (e, i) => {
     const { name, value } = e.target;
     let newForm = [...formValuesOParcourAcademique];
     newForm[i][name] = value;
-    setformValuesOParcourAcademique(newForm)
-    
+    setformValuesOParcourAcademique(newForm);
   };
   const onRemove = (i) => {
     const newForm = [...formValuesOParcourAcademique];
     newForm.splice(i);
     setformValuesOParcourAcademique(newForm);
-    
   };
-
 
   return (
     <div className="   pl-4 pr-4 mt-2 container ">
@@ -45,11 +44,16 @@ const ParcoursAcadémqueItems = ({
           />
           <RightOutlined
             className="pt-2 pr-3 cursor-pointer "
-            onClick={() => setActiveIndex(index)}
+            onClick={() => {
+              if (setActiveIndex(index)) {
+                setIsActive(!isActive);
+              }
+              
+            }}
           />
         </div>
       </div>
-      {activeIndex === index ? (
+      {activeIndex === index   ? (
         <div className="  pt-5 overflow-visible opacity-100 h-full  border-border_color -mt-5 pb-8    pl-4 pr-10 border-l-2  border-r-2  border-b-2 ">
           <div className="flex  space-x-5">
             <div className="w-1/2 mb-2">
@@ -62,9 +66,9 @@ const ParcoursAcadémqueItems = ({
                     name="startDate"
                     placeholder="ex : 20/05/2023"
                     value={education.startDate}
-                    className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2 sm:max-w-sm   border-solid border w-full border-barckground_textarea"
+                    className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2  sm:max-w-sm mb-2   border-solid border w-full border-barckground_textarea"
                   />
-                  <h5 className="text-red  mb-2  text-sm  ">
+                  <h5 className="text-red  mb-2   text-sm  ">
                     {message.length - 1 >= index && message[index].startDate}
                   </h5>
                 </div>
@@ -76,7 +80,7 @@ const ParcoursAcadémqueItems = ({
                     name="endDate"
                     value={education.endDate}
                     placeholder="ex : 20/06/2023"
-                    className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2   border-solid border w-full border-barckground_textarea"
+                    className="bg-panel  mt-4 rounded-md pt-2 pb-2  pl-2 mb-2   border-solid border w-full border-barckground_textarea"
                   />
                   <h5 className="text-red  mb-2  text-sm  ">
                     {message.length - 1 >= index && message[index].endDate}
@@ -92,9 +96,9 @@ const ParcoursAcadémqueItems = ({
                 name="nomDeLecole"
                 placeholder=" ex : EPI"
                 value={education.nomDeLecole}
-                className="bg-panel rounded-md  mt-4 pt-2 pb-2 pl-2 w-full mb-2  border-solid border   border-barckground_textarea"
+                className="bg-panel rounded-md  mt-4 pt-2 pb-2 pl-2 w-full   border-solid border mb-2   border-barckground_textarea"
               />
-              <h5 className="text-red  mb-2  text-sm  ">
+              <h5 className="text-red  mb-2   text-sm  ">
                 {message.length - 1 >= index && message[index].nomDeLecole}
               </h5>
             </div>
