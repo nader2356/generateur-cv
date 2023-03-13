@@ -1,4 +1,5 @@
 import { RightOutlined } from "@ant-design/icons";
+import { useEffect } from "react";
 const Profil = ({
   handleChangeProfile,
   Active,
@@ -10,8 +11,12 @@ const Profil = ({
   isLimit,
   limit,
   validateProfile,
+  setIsLimit
 }) => {
   const error = validateProfile(formValuesOProfile);
+  useEffect(() => {
+    setIsLimit(charCount >= limit);
+  }, [charCount, limit, setIsLimit]);
 
   return (
     <div className="w-11/12 ml-1  border-border_color border-r-2    border-l-2 ">

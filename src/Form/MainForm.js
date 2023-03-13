@@ -77,6 +77,7 @@ const MainForm = () => {
 
   const handleChangeProfile = (e) => {
     const { name, value } = e.target;
+    setCharCount(e.target.value.length)
     setFormValuesOfProfile({ ...formValuesOProfile, [name]: value });
     setFormProfileErrors(validateProfile(formValuesOProfile));
   };
@@ -199,6 +200,7 @@ const MainForm = () => {
             charCount={charCount}
             validateProfile={validateProfile}
             limit={limit}
+            setIsLimit={setIsLimit}
           />
 
           <PersonalInfo
