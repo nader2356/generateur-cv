@@ -77,7 +77,9 @@ const MainForm = () => {
 
   const handleChangeProfile = (e) => {
     const { name, value } = e.target;
-    setCharCount(e.target.value.length)
+    if (e.target.name === "description") {
+      setCharCount(e.target.value.length);
+    }
     setFormValuesOfProfile({ ...formValuesOProfile, [name]: value });
     setFormProfileErrors(validateProfile(formValuesOProfile));
   };
@@ -141,7 +143,9 @@ const MainForm = () => {
     setFormProfileErrors(validateProfile(formValuesOProfile));
     setFormPeronalInfoErrors(validatePersonalInfo(formValuesOPersonalInfo));
     const messageDErrorOfProfile = validateProfile(formValuesOProfile);
-    const messageDErrorOfPersonalInfo = validatePersonalInfo(formValuesOPersonalInfo);
+    const messageDErrorOfPersonalInfo = validatePersonalInfo(
+      formValuesOPersonalInfo
+    );
 
     if (
       messageDErrorOfProfile.poste === "Obligatoire" ||
