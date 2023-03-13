@@ -6,7 +6,7 @@ import Profil from "../Section/Profil";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import { getDocumentDefinition } from "../Resume/Resume";
-import { base64OfImage } from "../Component/Base64OfImage";
+
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const MainForm = () => {

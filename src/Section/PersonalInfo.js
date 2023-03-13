@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { RightOutlined } from "@ant-design/icons";
-import { useEffect } from "react";
+
 import { base64OfImage } from "../Component/Base64OfImage";
-import logo from "../img/kmlklmk.PNG";
+
 
 const getBase64 = (file) => {
   return new Promise((resolve) => {
