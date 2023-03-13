@@ -39,11 +39,11 @@ const ParcourAcademique = ({
         error.testDate = "";
       }
 
-      if (!education.Lieu) {
-        error.Lieu = "Obligatoire";
+      if (!education.lieu) {
+        error.lieu ="Obligatoire";
         valid = false;
       } else {
-        error.Lieu = "";
+        error.lieu = "";
       }
       if (!education.nomDeLecole) {
         error.nomDeLecole = "Obligatoire";
@@ -79,7 +79,7 @@ const ParcourAcademique = ({
           ...formValuesOParcourAcademique,
           {
             nomDuDiplome: "",
-            Lieu: "",
+            lieu: "",
             nomDeLecole: "",
             startDate: "",
             endDate: "",

@@ -126,13 +126,13 @@ const ParcoursAcadémqueItems = ({
               <input
                 type="text"
                 onChange={(e) => onHandle(e, index)}
-                name="Lieu"
-                value={education.Lieu}
+                name="lieu"
+                value={education.lieu}
                 placeholder=" ex : Sousse"
                 className="bg-panel rounded-md  mt-4 pt-2 pb-2 pl-2 w-full  mb-2 border-solid border   border-barckground_textarea"
               />
               <span className="text-red text-sm ">
-                {message.length - 1 >= index && message[index].Lieu}
+                {message.length - 1 >= index && message[index].lieu}
               </span>
             </div>
           </div>

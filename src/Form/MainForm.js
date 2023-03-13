@@ -37,7 +37,7 @@ const MainForm = () => {
   const InitialStateParcourAcademique = [
     {
       nomDuDiplome: "",
-      Lieu: "",
+      lieu: "",
       nomDeLecole: "",
       startDate: "",
       endDate: "",
