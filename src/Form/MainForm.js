@@ -6,6 +6,7 @@ import Profil from "../Section/Profil";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import { getDocumentDefinition } from "../Resume/Resume";
+import { base64OfImage } from "../Component/Base64OfImage";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const MainForm = () => {
@@ -129,7 +130,7 @@ const MainForm = () => {
     if (!values.phone) {
       errors.phone = "Obligatoire";
     }
-    
+
     return errors;
   };
 
@@ -138,19 +139,19 @@ const MainForm = () => {
 
     setFormProfileErrors(validateProfile(formValuesOProfile));
     setFormPeronalInfoErrors(validatePersonalInfo(formValuesOPersonalInfo));
+    const messageDErrorOfProfile = validateProfile(formValuesOProfile);
+    const messageDErrorOfPersonalInfo = validatePersonalInfo(formValuesOPersonalInfo);
 
-    const f = validateProfile(formValuesOProfile);
-    const d = validatePersonalInfo(formValuesOPersonalInfo);
-    console.log(f,d)
     if (
-      f.poste === 'Obligatoire' ||
-      f.description === "Obligatoire" ||
-      d.nom === "Obligatoire" ||
-      d.prenom === "Obligatoire" ||
-      d.git === "Obligatoire" ||
-      d.phone === "Obligatoire" ||
-      d.adresse === "Obligatoire" || 
-      d.email === "Obligatoire"    ) {
+      messageDErrorOfProfile.poste === "Obligatoire" ||
+      messageDErrorOfProfile.description === "Obligatoire" ||
+      messageDErrorOfPersonalInfo.nom === "Obligatoire" ||
+      messageDErrorOfPersonalInfo.prenom === "Obligatoire" ||
+      messageDErrorOfPersonalInfo.git === "Obligatoire" ||
+      messageDErrorOfPersonalInfo.phone === "Obligatoire" ||
+      messageDErrorOfPersonalInfo.adresse === "Obligatoire" ||
+      messageDErrorOfPersonalInfo.email === "Obligatoire"
+    ) {
       setdownload(false);
       setInitialiser(false);
     } else {

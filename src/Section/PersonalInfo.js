@@ -163,20 +163,18 @@ const PersonalInfo = ({
             {uploadType === "local" && (
               <input
                 type="file"
-                className="bg-panel rounded-md pt-2 pb-2  mb-5 mt-4 pl-2  w-11/12 border-solid border border-barckground_textarea"
+                className="bg-panel rounded-md pt-2 pb-2  mb-5 mt-4 pl-2  w-full border-solid border border-barckground_textarea"
                 accept=".jpg, .jpeg, .png"
                 id="myFile"
+                value={formValuesOPersonalInfo.photo === "" ? formValuesOPersonalInfo.photo === `${base64OfImage}` : undefined}
                 name="photo"
                 onChange={(e) => {
                   let file = e.target.files.item(0);
-                  console.log(file);
                   getBase64(file)
                     .then((result) => {
                       if (result) {
                         formValuesOPersonalInfo.photo = result;
-                        console.log(result);
                       }
-                      console.log(formValuesOPersonalInfo.photo);
                     })
                     .catch((err) => {});
                 }}
