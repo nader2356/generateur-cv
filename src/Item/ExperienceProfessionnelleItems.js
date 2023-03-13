@@ -156,7 +156,7 @@ const ExperienceProfessionnelleItems = ({
                 value={exp.detail}
                 onChange={(e) => onHandle(e, index)}
                 name="detail"
-                className="bg-barckground_textarea rounded-md pt-2 pl-2 pb-16    mt-4  w-full  border-solid border border-barckground_textarea  "
+                className="bg-barckground_textarea rounded-md pt-2 pl-2 pb-16   mt-4    w-full  border-solid border border-barckground_textarea "
               />
               <div
                 className={`${

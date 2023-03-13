@@ -184,6 +184,7 @@ const MainForm = () => {
       InitialStateExperienceProfessionelles
     );
     setCharCount(InitialStateProfil.description.length);
+    setActive("Profil")
     setInitialiser(false);
     setdownload(false);
     setSave(true);
